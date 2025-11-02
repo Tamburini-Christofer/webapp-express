@@ -30,14 +30,16 @@ app.get("/api", (req, res) => {
     console.log("hai richiesto la home page");
     res.send('<h1>Home page</h1>')})
 
+//todo Rotte
+app.use("/api/movie", movieRouter)
+
 //todo Middleware errore server
 app.use(errorServer);
 
 //todo Middleware not found
 app.use(notFound);
 
-//todo Rotte
-app.use("/api/movie", movieRouter)
+
 
 //! Metto in ascolto il server dalla porta 3000
 app.listen(port, () => {

@@ -2,10 +2,10 @@
 const express = require("express");
 
 //? Controller 
-const contoller = reuire("../controllers/controller.js");
+const controller = require("../controllers/controller.js");
 
 //? Server
-const router = express.router();
+const router = express.Router();
 
 //todo Index
 router.get("/", controller.index)
