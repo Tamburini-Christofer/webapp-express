@@ -14,4 +14,4 @@ router.get("/", controller.index)
 router.get("/:id", contoller.show)
 
 //! Esportare il modulo
-export default router;
+module.exports = router;

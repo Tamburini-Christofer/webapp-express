@@ -16,4 +16,4 @@ connection.connect((err) => {
 });
 
 //!Esporto modulo
-export default connection;
+module.exports = connection;
