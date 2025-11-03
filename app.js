@@ -19,6 +19,12 @@ const errorServer = require("./middlewares/errorServer");
 //? Importo imagePath
 const imagePath = require("./middlewares/imagePath");
 
+//? Importo CORS
+const cors = require("cors");
+
+//todo Uso CORS
+app.use(cors({origin: process.env.FE_APP}));
+
 //todo Middleware static 
 app.use(express.static('public'));
 
