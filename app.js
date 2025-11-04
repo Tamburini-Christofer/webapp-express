@@ -23,7 +23,7 @@ const imagePath = require("./middlewares/imagePath");
 const cors = require("cors");
 
 //todo Uso CORS
-app.use(cors({origin: process.env.FE_APP}));
+app.use(cors());
 
 //todo Middleware static 
 app.use(express.static('public'));
@@ -44,8 +44,6 @@ app.use(errorServer);
 
 //todo Middleware not found
 app.use(notFound);
-
-
 
 //! Metto in ascolto il server dalla porta 3000
 app.listen(port, () => {

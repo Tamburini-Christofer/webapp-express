@@ -11,7 +11,7 @@ const router = express.Router();
 router.get("/", controller.index)
 
 //todo Show
-router.get("/:id", contoller.show)
+router.get("/:id", controller.show)
 
 //! Esportare il modulo
 module.exports = router;
