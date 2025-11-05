@@ -25,6 +25,9 @@ const cors = require("cors");
 //todo Uso CORS
 app.use(cors());
 
+//todo Middleware per leggere JSON
+app.use(express.json());
+
 //todo Middleware static 
 app.use(express.static('public'));
 

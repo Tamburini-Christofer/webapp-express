@@ -13,5 +13,8 @@ router.get("/", controller.index)
 //todo Show
 router.get("/:id", controller.show)
 
+//todo Store
+router.post("/:id/review", controller.store)
+
 //! Esportare il modulo
 module.exports = router;

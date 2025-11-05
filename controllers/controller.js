@@ -50,4 +50,36 @@ function show(req, res) {
   });
 }
 
-module.exports = { index, show };
+//todo Store
+function store(req, res) {
+  const movieId = parseInt(req.params.id);
+  const { name, vote, text } = req.body;
+
+  if (!name || !vote || !text) {
+    return res.status(400).json({ error: "Tutti i campi sono obbligatori" });
+  }
+
+  if (vote < 1 || vote > 5) {
+    return res.status(400).json({ error: "Il voto deve essere tra 1 e 5" });
+  }
+
+  const sql = "INSERT INTO reviews (movie_id, name, vote, text) VALUES (?, ?, ?, ?)";
+
+  connection.query(sql, [movieId, name, vote, text], (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: "Errore nel salvare la recensione" });
+    }
+
+    const newReview = {
+      id: results.insertId,
+      movie_id: movieId,
+      name: name,
+      vote: vote,
+      text: text
+    };
+
+    res.status(201).json(newReview);
+  });
+}
+
+module.exports = { index, show, store };
